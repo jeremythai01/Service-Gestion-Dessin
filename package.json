@@ -1,0 +1,59 @@
+{
+    "name": "server",
+    "description": "Package for Colorimage server",
+    "version": "1.1.0",
+    "private": true,
+    "engines": {
+        "node": "12.14.1",
+        "npm": "6.14.11"
+    },
+    "nodemonConfig": {
+        "watch": [
+            "app"
+        ],
+        "ext": "ts",
+        "ignore": [
+            "app/**/*.spec.ts"
+        ],
+        "exec": "ts-node ./app/www.ts"
+    },
+    "scripts": {
+        "start": "nodemon",
+        "build": "tsc --project tsconfig.json",
+        "test": "cross-env TS_NODE_PROJECT='./tsconfig.test.json' mocha --config=test/.mocharc.json --node-env=test"
+    },
+    "dependencies": {
+        "@types/cookie-parser": "^1.4.2",
+        "@types/mongodb": "^4.0.7",
+        "@types/morgan": "^1.9.2",
+        "body-parser": "^1.19.0",
+        "cookie-parser": "1.4.5",
+        "cors": "2.8.5",
+        "debug": "^4.1.1",
+        "express": "~4.17.1",
+        "express-server-utils": "^1.1.0",
+        "express-validator": "^5.3.1",
+        "firebase-admin": "^10.0.2",
+        "inversify": "^5.0.1",
+        "moment": "^2.29.2",
+        "moment-timezone": "^0.5.34",
+        "morgan": "^1.10.0",
+        "reflect-metadata": "^0.1.13",
+        "serve-favicon": "~2.5.0",
+        "socket.io": "^3.1.1",
+        "swagger-jsdoc": "^6.0.0-rc.5",
+        "swagger-ui-express": "^4.1.5",
+        "ts-node": "^8.10.2",
+        "typescript": "^3.9.7"
+    },
+    "devDependencies": {
+        "@babel/preset-env": "^7.16.11",
+        "@types/cors": "^2.8.12",
+        "cross-env": "^7.0.2",
+        "mongodb-memory-server": "^8.4.0",
+        "nodemon": "^2.0.7",
+        "rimraf": "3.0.2",
+        "supertest": "^4.0.2",
+        "tsconfig-paths": "^3.9.0"
+    }
+}
